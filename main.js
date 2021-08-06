@@ -1,9 +1,9 @@
 
 // Create canvas variable
-canvas = fabric.Canvas('myCanvas');
+var canvas = new fabric.Canvas('myCanvas');
 //Set initial positions for ball and hole images.
-balx = 0;
-baly = 0;
+balx = 70;
+baly = 10;
 holye = 400;
 holxe = 800;
 
@@ -33,8 +33,8 @@ function new_image()
 		ball_obj.scaleToWidth(50);
 		ball_obj.scaleToHeight(50);
 		ball_obj.set({
-			top:balx,
-			left:baly
+			top:baly,
+			left:balx
 		});
 		canvas.add(ball_obj);
 	});
@@ -96,32 +96,34 @@ function my_keydown(e)
  			console.log("When down arrown key is pressed, X = " + balx + ", Y = " + baly);
  			canvas.remove(ball_obj);
  			new_image();
+			}
+
+
 	}
 
-	function left()
-	{
-		if(balx >5)
+	function left() {
+		if(balx >=0)
 		{
-			// Write a code to move ball left side.
-			balx = balx - block_image_width;
-			console.log("block_image_width = " + block_image_width);
-			console.log("When up arrown key is pressed, X = " + balx + ", Y = " + baly);
-			canvas.remove(ball_obj);
-			new_image();
-		}
+		// Write a code to move ball left side.
+		balx = balx - block_image_width;
+		console.log("block_image_width = " + block_image_width);
+		console.log("When up arrown key is pressed, X = " + balx + ", Y = " + baly);
+		canvas.remove(ball_obj);
+		new_image();
+	}
 	}
 
-	function right()
+function right()
+{
+	if(balx <=1060)
 	{
-		if(balx <=1050)
-		{
-			// Write a code to move ball right side.
-			balx = balx + block_image_width;
-			console.log("block_image_width = " + block_image_width);
-			console.log("When up arrown key is pressed, X = " + balx + ", Y = " + baly);
-			canvas.remove(ball_obj);
-			new_image();
-		}
+		// Write a code to move ball right side.
+		balx = balx + block_image_width;
+		console.log("block_image_width = " + block_image_width);
+		console.log("When up arrown key is pressed, X = " + balx + ", Y = " + baly);
+		canvas.remove(ball_obj);
+		new_image();
 	}
+}
 
 }
